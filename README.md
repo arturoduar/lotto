@@ -1,6 +1,6 @@
 # lotto
 
-A new Python project.
+Python fun with lotto data.
 
 ## Setup
 
