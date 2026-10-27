@@ -1,6 +1,7 @@
 # lotto
 
 Python fun with lotto data.
+First pass: SuperLotto Plus
 
 ## Setup
 
