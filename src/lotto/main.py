@@ -11,7 +11,8 @@ def greet(name: str = "world") -> str:
 def main() -> None:
     print(greet())
     # read the csv file containing lotto numbers in the data folder 
-
+    # put the values of the dates as the x-axis for the plot. These 
+    # are strings and they should not overlap on the x-axis
     with open("data/combined_superlotto.csv", newline="") as csvfile:
         reader = csv.reader(csvfile)
         rows = list(reader)
@@ -22,12 +23,14 @@ def main() -> None:
         n4 = [int(row[6]) for row in recent_10]
         n5 = [int(row[7]) for row in recent_10]
 
-    plt.plot(n1, label="N1")
-    plt.plot(n2, label="N2")
-    plt.plot(n3, label="N3")
-    plt.plot(n4, label="N4")
-    plt.plot(n5, label="N5")
+    dates = [row[1] for row in recent_10]
+    plt.plot(dates, n1, label="N1")
+    plt.plot(dates, n2, label="N2")
+    plt.plot(dates, n3, label="N3")
+    plt.plot(dates, n4, label="N4")
+    plt.plot(dates, n5, label="N5")
     plt.legend()
+    plt.gcf().autofmt_xdate()  # rotate and align the x-axis labels
     plt.show()
 
 if __name__ == "__main__":
