@@ -13,6 +13,8 @@ def main() -> None:
     # read the csv file containing lotto numbers in the data folder 
     # put the values of the dates as the x-axis for the plot. These 
     # are strings and they should not overlap on the x-axis
+    # add a title to the plot
+
     with open("data/combined_superlotto.csv", newline="") as csvfile:
         reader = csv.reader(csvfile)
         rows = list(reader)
@@ -30,6 +32,7 @@ def main() -> None:
     plt.plot(dates, n4, label="N4")
     plt.plot(dates, n5, label="N5")
     plt.legend()
+    plt.title("Recent 10 SuperLotto Numbers")
     plt.gcf().autofmt_xdate()  # rotate and align the x-axis labels
     plt.show()
 
